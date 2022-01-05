@@ -14,7 +14,7 @@ from nltk.corpus import stopwords
 stopwords = stopwords.words('english')
 
 from nltk.tokenize import word_tokenize
-from pdf2image import convert_from_path
+from pdf2image import convert_from_path, pdfinfo_from_path
 
 import spacy
 en_core = "venv/Lib/site-packages/en_core/en_core_web_sm/en_core_web_sm-3.2.0/"
@@ -31,7 +31,11 @@ poppler_path = r'static\pkg\poppler-21.11.0\Library\bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
+    page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    print("=== page_count ===" , page_count)
     pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
+    page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    print("=== page_count ===", page_count)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
