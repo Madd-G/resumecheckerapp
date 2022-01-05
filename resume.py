@@ -5,6 +5,9 @@ except ImportError:
     import Image
 
 import pytesseract
+from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle
+from sklearn.preprocessing import LabelEncoder
 import pickle
 import re
 from nltk.corpus import stopwords
@@ -28,7 +31,7 @@ poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    pages = convert_from_path(pdf_path=path, dpi=300)
+    pages = convert_from_path(pdf_path=path)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
@@ -44,11 +47,11 @@ def convert_pdf_to_text(path):
 
 
 def resume_classification(path, inp):
-    inp = inp
     filename = 'resume_classification_model.sav'
     loaded_model = pickle.load(open(filename, 'rb'))
 
     text = convert_pdf_to_text(path).lower()
+    print("==== text === ", text)
     vec_path = 'vectorizer.pickle'
     tfidf_file = open(vec_path, 'rb')
     tfidfconverter = pickle.load(tfidf_file)

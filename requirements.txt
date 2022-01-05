@@ -8,6 +8,12 @@ pytesseract
 python-dateutil
 poppler-utils
 pdf2image
-scikit-learn
 pickle5
 regex
+os
+platform
+tempfile
+types
+shutil
+pathlib
+subprocess
