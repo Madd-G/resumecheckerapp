@@ -1,0 +1,13 @@
+Flask==2.0.0
+Werkzeug==2.0.1
+gunicorn==20.1.0
+spacy==3.2.1
+Image==1.5.33
+nltk==3.6.5
+pytesseract
+python-dateutil
+poppler-utils
+pdf2image
+scikit-learn
+pickle5
+regex

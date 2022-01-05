@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/w3.css') }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="/static/css/logo-pcm.png" type="image/x-icon">
+
+    <title>Klasifikasi Resume</title>
+</head>
+<body>
+<div>
+    <div>
+        <div class="w3-container">
+            <div class="row">
+                <div class="col w3-indigo text-center w3-card-2">
+                    <h2 style="padding-top:5px"><b>Klasifikasi Resume</b></h2>
+                </div>
+            </div>
+            <div class="row align-items-end w3-container w3-card-2">
+                <div class="col">
+                    <br>
+                    <h5 style="color:gray">Masukan resume (pdf)</h5>
+<!--                    <form class="p-3 text-center" action="/scan/" method=post enctype="multipart/form-data" multiple>-->
+                    <form class="p-3 text-center" action="/scan/" method=post enctype="multipart/form-data" multiple>
+                        <input class="form-control input" type="file" name="file"/>
+                        <br>
+                        <!--                        <form action="" method="post">-->
+                        <textarea id="kualifikasi" name="kualifikasi" class="form-control input"
+                                  type="text"></textarea>
+                        <!-- <input type="submit" name="kualifikasi" value="submit">-->
+                        <!--                        </form>-->
+                        <br>
+                        <b><input class="w3-button w3-green w3-round-large button"
+                                  style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+                                  type="submit" name="kualifikasi" value="Klasifikasi" /></b>
+<!--                        href="/infeksi/"-->
+                    </form>
+
+                    <br>
+                </div>
+            </div>
+            <br>
+            <div class="col w3-container w3-card-4">
+                <div class="row w3-indigo">
+                    <h4 style="padding-top:5px; padding-left:10px"><b>Hasil Analisis Resume</b></h4>
+                </div>
+                <br>
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="row">
+                    {% if results is defined %}
+                    {% for i in range(len-1,-1,-1) %}
+
+                    {{ results[i]|safe }}
+
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <hr/>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    let input = document.querySelector(".input")
+    let button = document.querySelector(".button")
+
+    button.disabled = true
+
+    input.addEventListener("change", stateHandle)
+
+    function stateHandle() {
+        if (document.querySelector(".input").value === "") {
+            button.disabled = true
+        } else {
+            button.disabled = false
+        }
+    }
+</script>
+</body>
+</html>
