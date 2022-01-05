@@ -10,10 +10,3 @@ poppler-utils
 pdf2image
 pickle5
 regex
-os
-platform
-tempfile
-types
-shutil
-pathlib
-subprocess
