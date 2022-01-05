@@ -2,6 +2,8 @@ from flask import Flask, flash, render_template, request, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
 
+from resume import resume_classification
+
 app = Flask(__name__)
 app.config["DEBUG"] = False
 
@@ -49,19 +51,25 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             print("==== ada file dan format tepat ====")
             # return redirect(url_for('result_text', filename=filename))
-            return result_text(filename, inp)
+            # return result_text(filename, inp)
+            path = (UPLOAD_FOLDER+filename)
+            text, score_str, cosine = resume_classification(path, inp)
+            results = []
+            answer = "<div class='col text-center'>" "Klasifikasi: " + text + " dengan score : " + score_str + ", cosine score: " + str(cosine) + "%" + "</div>"
+            results.append(answer)
 
+            return render_template('index.html', len=len(results), results=results)
 
-@app.route('/index/<filename>/scaned', methods=['GET', 'POST'])
-def result_text(filename, inp):
-    inp = inp
-    path = (UPLOAD_FOLDER + filename)
-    from resume import resume_classification
-    text, score_str, cosine = resume_classification(path, inp)
-    results = []
-    answer = "<div class='col text-center'>" "Klasifikasi: " + text + " dengan score : " + score_str + ", cosine score: " + str(cosine) + "%" + "</div>"
-    results.append(answer)
-    return render_template('index.html', len=len(results), results=results)
+# @app.route('/index/<filename>/scaned', methods=['GET', 'POST'])
+# def result_text(filename, inp):
+#     inp = inp
+#     path = (UPLOAD_FOLDER+filename)
+#     from resume import resume_classification
+#     text, score_str, cosine = resume_classification(path, inp)
+#     results = []
+#     answer = "<div class='col text-center'>" "Klasifikasi: " + text + " dengan score : " + score_str + ", cosine score: " + str(cosine) + "%" + "</div>"
+#     results.append(answer)
+#     return render_template('index.html', len=len(results), results=results)
 
 
 app.config['SECRET_KEY'] = 'super secret key'

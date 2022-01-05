@@ -28,7 +28,7 @@ poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    pages = convert_from_path(pdf_path=path, dpi=500)
+    pages = convert_from_path(pdf_path=path, dpi=300)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
