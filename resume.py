@@ -26,15 +26,24 @@ from string import punctuation
 punctuation = punctuation + '\n'
 
 
-pytesseract.pytesseract.tesseract_cmd = r'static\pkg\Tesseract-OCR\tesseract.exe'
-poppler_path = r'static\pkg\poppler-21.11.0\Library\bin'
+pytesseract.pytesseract.tesseract_cmd = r'static/pkg/Tesseract-OCR/tesseract.exe'
+poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    try :
+        page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    except:
+        print("===== page count error ======")
     print("=== page_count ===" , page_count)
-    pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
-    page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    try:
+        pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
+    except:
+        print("====== pages error ======")
+    try:
+        page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    except:
+        print("===== page count error ======")
     print("=== page_count ===", page_count)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
