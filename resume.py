@@ -31,20 +31,14 @@ poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    try :
-        page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
-    except:
-        print("===== page count error ======")
-    print("=== page_count ===" , page_count)
     try:
         pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
     except:
         print("====== pages error ======")
-    try:
-        page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
-    except:
-        print("===== page count error ======")
-    print("=== page_count ===", page_count)
+    # try:
+    #     page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
+    # except:
+    #     print("===== page count error ======")
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
