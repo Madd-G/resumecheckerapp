@@ -27,7 +27,7 @@ punctuation = punctuation + '\n'
 
 
 pytesseract.pytesseract.tesseract_cmd = r'static/pkg/Tesseract-OCR/tesseract.exe'
-poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
+poppler_path = r'static\pkg\poppler-21.11.0\Library\bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
