@@ -31,14 +31,7 @@ poppler_path = r'static/pkg/poppler-21.11.0/Library/bin'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    try:
-        pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
-    except:
-        print("====== pages error ======")
-    # try:
-    #     page_count = pdfinfo_from_path(pdf_path=path, poppler_path=poppler_path)["Pages"]
-    # except:
-    #     print("===== page count error ======")
+    pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
@@ -138,7 +131,6 @@ def resume_classification(path, inp):
         return str1
 
     doc2 = listToString(doc2)
-    print("doc2", doc2)
 
     processed_tweet = re.sub(r'\W', ' ', doc2)
     processed_tweet = re.sub(r'\s+[a-zA-Z]\s+', ' ', processed_tweet)

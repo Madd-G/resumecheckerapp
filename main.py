@@ -39,8 +39,6 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             print("==== ada file dan format tepat ====")
-            # return redirect(url_for('result_text', filename=filename))
-            # return result_text(filename, inp)
             path = (UPLOAD_FOLDER+filename)
             text, score_str, cosine = resume_classification(path, inp)
             results = []
