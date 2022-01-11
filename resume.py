@@ -27,12 +27,12 @@ punctuation = punctuation + '\n'
 
 
 pytesseract.pytesseract.tesseract_cmd = r'static/pkg/Tesseract-OCR/tesseract.exe'
-poppler_path = r'static/pkg/poppler-21.11.0/Library/bin/'
+poppler_path = r'static/pkg/poppler-0.68.0/bin/'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    pages = convert_from_path(pdf_path=path)
-    # pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
+    # pages = convert_from_path(pdf_path=path)
+    pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
