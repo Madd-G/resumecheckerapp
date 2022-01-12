@@ -14,7 +14,7 @@ from nltk.corpus import stopwords
 stopwords = stopwords.words('english')
 
 from nltk.tokenize import word_tokenize
-from pdf2image import convert_from_path, pdfinfo_from_path
+from pdf2image import convert_from_path
 
 import spacy
 en_core = "venv/Lib/site-packages/en_core/en_core_web_sm/en_core_web_sm-3.2.0/"
@@ -25,14 +25,16 @@ from nltk.stem import WordNetLemmatizer
 from string import punctuation
 punctuation = punctuation + '\n'
 
+# import tempfile
 
-pytesseract.pytesseract.tesseract_cmd = r'static/pkg/Tesseract-OCR/tesseract.exe'
-poppler_path = r'static/pkg/poppler-0.68.0/bin/'
+# pytesseract.pytesseract.tesseract_cmd = r'static/pkg/Tesseract-OCR/tesseract.exe'
+# poppler_path = r'static/pkg/poppler-0.68.0/bin/'
 
 def convert_pdf_to_text(path):
     print("==== sebelum convert ====")
-    # pages = convert_from_path(pdf_path=path)
-    pages = convert_from_path(pdf_path=path, poppler_path=poppler_path)
+    pages = convert_from_path(pdf_path=path)
+    # with tempfile.TemporaryDirectory() as paths:
+    #     pages = convert_from_path(pdf_path=path, output_folder=paths)
     print("===== setelah convert ====: ", str(pages))
     num_pages = 0
     extractedInformation = ''
