@@ -9,7 +9,7 @@ app.config["DEBUG"] = False
 # Allowed files
 ALLOWED_EXTENSIONS = {'pdf'}
 
-UPLOAD_FOLDER = 'static/files/resume/'
+UPLOAD_FOLDER = 'static/files/'
 
 
 def allowed_file(filename):
