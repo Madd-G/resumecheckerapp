@@ -7,7 +7,7 @@
 
     <title>CV Checker</title>
 
-        <link href="../static/images/cv.png" rel="icon">
+    <link href="../static/images/cv.png" rel="icon">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
@@ -37,12 +37,10 @@
         </h1></a></h1>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="/">Beranda</a></li>
+<!--                <li><a class="nav-link scrollto" href="/">Beranda</a></li>-->
                 <li><a class="nav-link scrollto" href="#check">Check</a></li>
-                <li><a class="nav-link scrollto" href="#team">Developer</a></li>
-                <li><a class="nav-link scrollto" href="#tentang">Tentang Kami</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
-
+                <li><a class="nav-link scrollto" href="#team">Developer</a></li>
             </ul>
             <i class="bx bx-list-ul mobile-nav-toggle"></i>
         </nav>
@@ -87,14 +85,13 @@
                 <div class="col-lg-6 pt-4 pt-lg-0 content align-self-center">
                     <h2>About</h2>
                     <p>
-                        'Orbit AI Gen Y' adalah program pelatihan Artificial Intelligence holistik yang hybrid dan
-                        inklusif untuk siswa dari semua sektor dan minat yang beragam. Program ini menggunakan
-                        pendekatan Deep Learning & berbasis proyek. Orbit AI Gen Y berdurasi 6 bulan dan mencakup mulai
-                        dari level basic pengenalan AI, hingga
-                        advance level yang mencakup pemograman Python dan AI Project Cycle (Problem Scoping, Data
-                        Acquisition, Data Exploration, Modelling, Evaluation & Deployment). Selain itu program ini juga
-                        dilengkapi dengan kursus Life Skills yang penting dan diperlukan untuk kesuksesan perusahaan
-                        atau kewirausahaan.
+                        'Orbit AI Gen Y' is a hybrid and inclusive holistic Artificial Intelligence training program for
+                        students from all sectors and diverse interests. This program uses a Deep Learning &
+                        project-based approach. The Gen Y AI Orbit lasts 6 months and covers the basic level of AI
+                        introduction, to the advanced level which includes Python programming and the AI Project Cycle
+                        (Problem Scoping, Data Acquisition, Data Exploration, Modeling, Evaluation & Deployment). In
+                        addition, this program is also equipped with Life Skills courses which are essential and
+                        necessary for the success of a company or entrepreneurship.
                     </p>
                 </div>
             </div>
@@ -108,7 +105,7 @@
                     <img src="../../static/images/tentang.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content align-self-center">
-                    <h2>Tentang kami</h2>
+                    <h2>About Us</h2>
                     <p>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
@@ -131,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="member">
-                        <img src="../static/images/team/person.jpg" alt="Akhmad Nur Alamsyah" width="200"
+                        <img src="../static/images/team/alam.jpg" alt="Akhmad Nur Alamsyah" width="200"
                              height="250">
                         <h5>Akhmad Nur Alamsyah</h5>
                         <h6>Teknik Informatika</h6>
@@ -140,7 +137,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="member">
-                        <img src="../static/images/team/person.jpg" alt="Wildan Adhitya Geraldine" width="200"
+                        <img src="../static/images/team/wildan.jpeg" alt="Wildan Adhitya Geraldine" width="200"
                              height="250">
                         <h5>Wildan Adhitya Geraldine</h5>
                         <h6>Teknik Informatika</h6>
@@ -149,7 +146,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="member">
-                        <img src="../static/images/team/person.jpg" alt="Arum Mila Sari" width="200"
+                        <img src="../static/images/team/arum.jpeg" alt="Arum Mila Sari" width="200"
                              height="250">
                         <h5>Arum Mila Sari</h5>
                         <h6>Teknik Informatika</h6>
@@ -158,7 +155,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="member">
-                        <img src="../static/images/team/person.jpg" alt="Mery Yulinda Rahmi" width="200"
+                        <img src="../static/images/team/merry.png" alt="Mery Yulinda Rahmi" width="200"
                              height="250">
                         <h5>Mery Yulinda Rahmi</h5>
                         <h6>Sistem Informasi</h6>
@@ -172,15 +169,15 @@
     <!--    <section id="check" class="check section-bg">-->
     <div id="check" class="row align-items-end w3-container w3-card-2">
         <div class="col">
-            <h5 style="color:gray">Klasifikasi CV</h5>
+            <h5 style="color:gray">CV Classification</h5>
             <form class="p-3 text-center" action="/" method=post enctype="multipart/form-data" multiple>
                 <div class="form-group">
-                    <label style="color:gray">Masukkan CV (pdf dan bahasa inggris)</label>
+                    <label style="color:gray">Input CV (pdf and english)</label>
                     <input class="form-control input" type="file" name="file"/>
                 </div>
                 <br>
                 <div class="form-group">
-                    <label style="color:gray">Kualifikasi</label>
+                    <label style="color:gray">Qualification</label>
                     <textarea id="kualifikasi" name="kualifikasi" class="form-control input" type="text"
                               rows="7"></textarea>
                 </div>
@@ -188,7 +185,7 @@
                 <div class="col w3-container w3-card-4">
                     <!--            w3-161-->
                     <div class="row w3-indigo" style="color: #2196F3">
-                        <h4 style="padding-top:5px; padding-left:10px"><b>Hasil Analisis CV</b></h4>
+                        <h4 style="padding-top:5px; padding-left:10px"><b>Result</b></h4>
                     </div>
                     <br>
                     {% for message in get_flashed_messages() %}
@@ -212,12 +209,11 @@
                 <br>
                 <b><input class="w3-button w3-blue w3-round-large button"
                           style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
-                          type="submit" value="Klasifikasi"/></b>
+                          type="submit" value="Classify"/></b>
             </form>
             <br>
         </div>
     </div>
-    <!--    </section>-->
 </main>
 
 <footer class="bg-primary text-white text-center text-lg-start" id="contact">
@@ -225,7 +221,8 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase">CV Checker</h5>
-                <p>Website untuk mengetahui kesesuaian CV</p>
+                <p>
+                    Website to find out the suitability of CV</p>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
