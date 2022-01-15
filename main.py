@@ -37,7 +37,7 @@ def upload_file():
             path = (UPLOAD_FOLDER+filename)
             text, score_str, cosine = cv_classification(path, inp)
             results = []
-            answer = "<div class='col text-center'>" + "Klasifikasi: " + text + " dengan score : " + score_str + ", cosine score: " + str(cosine) + "%" + "</div>"
+            answer = "<div class='col text-center'>" + "Classification: " + text + " with score: " + score_str + "%" + ", Qualification suitability score with CV : " + str(cosine) + "%" + "</div>"
             results.append(answer)
 
             return render_template('index.html', len=len(results), results=results)
