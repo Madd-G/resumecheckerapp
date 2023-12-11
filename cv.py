@@ -9,6 +9,9 @@ import re
 from nltk.corpus import stopwords
 
 stopwords = stopwords.words('english')
+import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
 
 from nltk.tokenize import word_tokenize
 from pdf2image import convert_from_path

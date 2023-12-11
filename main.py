@@ -15,6 +15,7 @@ UPLOAD_FOLDER = 'static/files/'
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @app.route("/", methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'GET':
@@ -34,13 +35,15 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            path = (UPLOAD_FOLDER+filename)
+            path = (UPLOAD_FOLDER + filename)
             text, score_str, cosine = cv_classification(path, inp)
             results = []
-            answer = "<div class='col text-center'>" + "Classification: " + text + " with score: " + score_str + "%" + ", Qualification suitability score with CV : " + str(cosine) + "%" + "</div>"
+            answer = "<div class='col text-center'>" + "Classification: " + text + " with score: " + score_str + "%" + ", Qualification suitability score with CV : " + str(
+                cosine) + "%" + "</div>"
             results.append(answer)
 
             return render_template('index.html', len=len(results), results=results)
+
 
 app.config['SECRET_KEY'] = 'super secret key'
 
